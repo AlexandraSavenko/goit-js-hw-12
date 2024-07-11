@@ -22,8 +22,9 @@ async function getPicturesByValue(evt) {
   try {
     const picturesResponse = await fetchParams(inputValue);
     inputPictures(picturesResponse);
+    form.reset();
   } catch (err) {
-    console.log(err);
+    errorParams();
   }
 
   // .then(inputPictures)
