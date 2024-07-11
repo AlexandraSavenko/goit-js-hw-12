@@ -7,6 +7,7 @@ import {
 import { fetchParams } from './js/pixabay-api';
 const formSearch = document.querySelector('.search-form');
 const gallery = document.querySelector('.gallery-container');
+const loadingButton = document.querySelector('.btn-load');
 
 formSearch.addEventListener('submit', getPicturesByValue);
 async function getPicturesByValue(evt) {
@@ -22,12 +23,13 @@ async function getPicturesByValue(evt) {
   try {
     const picturesResponse = await fetchParams(inputValue);
     inputPictures(picturesResponse);
-    form.reset();
   } catch (err) {
     errorParams();
+  } finally {
+    form.reset();
   }
-
-  // .then(inputPictures)
-  // .catch(errorParams)
-  // .finally(() => form.reset());
+}
+loadingButton.addEventListener('click', getMorePictures);
+function getMorePictures() {
+  console.log(loadingButton);
 }

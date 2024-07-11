@@ -63,6 +63,7 @@ li {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 16px;
+  margin-bottom: 20px;
 }
 img {
   object-fit: cover;
@@ -112,4 +113,11 @@ img {
   to {
     width: 100%;
   }
+}
+.load-btn-wrap {
+  display: flex;
+  justify-content: center;
+}
+.btn-load {
+  display: none;
 }
