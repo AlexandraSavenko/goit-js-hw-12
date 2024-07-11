@@ -15,7 +15,7 @@ export function inputPictures({ hits }) {
         views,
         comments,
         downloads,
-      }) => {
+      }) =>
         `<ul class="gallery-card">
       <li class="gallery">
       <a class="gallery-link" href="${largeImageURL}"> 
@@ -30,8 +30,7 @@ export function inputPictures({ hits }) {
   </ul>
 </div>
 </li>
-    </ul>`;
-      }
+    </ul>`
     )
     .join('');
   gallery.innerHTML = hitsList;
