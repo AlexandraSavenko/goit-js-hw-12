@@ -35,6 +35,7 @@ async function getPicturesByValue(evt) {
   try {
     const picturesResponse = await fetchParams(currentQuery, currentPage);
     inputPictures(picturesResponse);
+
     loadingButton.style.display = 'flex';
   } catch (err) {
     errorParams();
@@ -55,13 +56,16 @@ async function getMorePictures() {
     const picturesResponse = await fetchParams(currentQuery, currentPage);
     inputPictures(picturesResponse);
     gallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const pictureItem = document.querySelector('.gallery');
+    let pictureItemSize = pictureItem.getBoundingClientRect();
+    window.scrollBy({
+      top: pictureItemSize.height * 2,
+      left: 0,
+      behavior: 'smooth',
+    });
   } catch (err) {
     errorParams();
   } finally {
     hideLoading();
   }
 }
-// loadingButton.addEventListener('click', getMorePictures);
-// function getMorePictures() {
-//   console.log(loadingButton);
-// }

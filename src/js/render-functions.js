@@ -34,6 +34,7 @@ export function inputPictures({ hits }) {
     )
     .join('');
   gallery.innerHTML = hitsList;
+
   if (hits.length === 0) {
     hideLoading();
     return errorParams();
