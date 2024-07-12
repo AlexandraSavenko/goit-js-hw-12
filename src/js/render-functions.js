@@ -33,7 +33,7 @@ export function inputPictures({ hits }) {
     </ul>`
     )
     .join('');
-  gallery.innerHTML = hitsList;
+  gallery.insertAdjacentHTML('beforeend', hitsList);
 
   if (hits.length === 0) {
     hideLoading();

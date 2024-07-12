@@ -34,6 +34,11 @@ async function getPicturesByValue(evt) {
 
   try {
     const picturesResponse = await fetchParams(currentQuery, currentPage);
+    if (picturesResponse.hits.length === 0) {
+      loadingButton.style.display = 'none';
+      hideLoading();
+      return errorParams();
+    }
     inputPictures(picturesResponse);
 
     loadingButton.style.display = 'flex';
