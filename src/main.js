@@ -13,6 +13,7 @@ const loadingButton = document.querySelector('.btn-load');
 
 let currentQuery = '';
 let currentPage = 1;
+let queryHits = 0;
 
 formSearch.addEventListener('submit', getPicturesByValue);
 loadingButton.addEventListener('click', getMorePictures);
@@ -34,6 +35,8 @@ async function getPicturesByValue(evt) {
 
   try {
     const picturesResponse = await fetchParams(currentQuery, currentPage);
+    queryHits = picturesResponse.total;
+
     if (picturesResponse.hits.length === 0) {
       loadingButton.style.display = 'none';
       hideLoading();
@@ -52,7 +55,8 @@ async function getPicturesByValue(evt) {
 async function getMorePictures() {
   showLoading();
   currentPage += 1;
-  const totalHits = 60 / 15;
+  const totalHits = Math.ceil(queryHits / 15);
+
   try {
     if (currentPage === totalHits) {
       loadingButton.style.display = 'none';
