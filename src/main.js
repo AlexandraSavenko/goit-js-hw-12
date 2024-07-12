@@ -49,6 +49,7 @@ async function getMorePictures() {
   try {
     const picturesResponse = await fetchParams(currentQuery, currentPage);
     inputPictures(picturesResponse);
+    gallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } catch (err) {
     errorParams();
   } finally {
