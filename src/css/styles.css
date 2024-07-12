@@ -120,4 +120,18 @@ img {
 }
 .btn-load {
   display: none;
+  border: none;
+  background-color: #4e75ff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 40px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+.btn-load:hover {
+  background-color: #6c8cff;
 }

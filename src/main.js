@@ -3,6 +3,7 @@ import {
   showLoading,
   hideLoading,
   errorParams,
+  noMoreLoading,
 } from './js/render-functions';
 import { fetchParams } from './js/pixabay-api';
 
@@ -45,8 +46,12 @@ async function getPicturesByValue(evt) {
 async function getMorePictures() {
   showLoading();
   currentPage += 1;
-
+  const totalHits = 60 / 15;
   try {
+    if (currentPage === totalHits) {
+      loadingButton.style.display = 'none';
+      noMoreLoading();
+    }
     const picturesResponse = await fetchParams(currentQuery, currentPage);
     inputPictures(picturesResponse);
     gallery.scrollIntoView({ behavior: 'smooth', block: 'start' });

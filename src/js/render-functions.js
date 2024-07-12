@@ -62,3 +62,14 @@ export function errorParams() {
       'Sorry, there are no images matching your search query. Please try again!',
   });
 }
+export function noMoreLoading() {
+  iziToast.warning({
+    title: 'warning',
+    position: 'topRight',
+    title: '',
+    message: 'We are sorry, but you`ve reached the end of search results!',
+    backgroundColor: 'blue',
+    titleColor: 'white',
+    messageColor: 'white',
+  });
+}
